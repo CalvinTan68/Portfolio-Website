@@ -35,22 +35,93 @@ html
     margin-left: 2rem;
 }
   
-.btn-primary 
+.download-button 
 {
-    background: #DADADA;
-    font-weight: bolder;
-    color: black;
+    position: relative;
+    border-width: 0;
     font-size: 14px;
-    border: solid 1px grey;
-    border-radius: 20px;
-    padding: 0.4rem 1rem;
-    transition: all 150ms ease-in-out;
+    font-weight: bolder;
+    background-color: transparent;
+    z-index: 1;
     letter-spacing: 4px;
 }
-  
-.btn-primary:hover 
+   
+.download-button .docs 
 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 0 10px;
+    border-radius: 20px;
+        padding: 0.4rem 1rem;
+    z-index: 1;
+    background-color: #DADADA;
+    border: solid 1px grey;
+       transition: all 150ms ease-in-out;
+}
+   
+   
+.download 
+{
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 90%;
+    margin: 0 auto;
+    z-index: -1;
+    border-radius: 20px;
+    transform: translateY(0%);
+    background-color: #DADADA;
+    border: solid 1px grey;
+    transition: all 150ms ease-in-out;
+}
+.download-button:hover
+{
+    background: transparent;
+}
+.docs:hover
+{
+    color: black;
     background: #999999;
+}
+.download:hover
+{
+    color: black;
+    background:#999999;
+}
+.download-button:hover .download
+{
+    transform: translateY(100%)
+}
+   
+.download svg polyline,.download svg line
+{
+    animation: docs 1s infinite;
+}
+   
+.download-button a
+{
+   color : black;
+   text-decoration : none;
+}
+   
+@keyframes docs 
+{
+0%
+{
+    transform: translateY(0%);
+}
+50% 
+{
+    transform: translateY(-15%);
+}
+100%
+{
+    transform: translateY(0%);
+}
 }
  
 .content
@@ -213,7 +284,6 @@ html
     .flex-item-right i
     {
         font-size: 30px;
-        
         text-align: center;
     }
   }
