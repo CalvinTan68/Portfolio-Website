@@ -1,5 +1,14 @@
+RewriteEngine On
+RewriteCond %{QUERY_STRING} ^(.*)i=[^&]+(.*)$ [NC]
+RewriteRule ^(.*)$ /$1?%1%2 [R=301,L]
+
 Header unset Cookie
 Header unset Set-Cookie
+
+#redirect http to https
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # DISABLE CACHING
 <IfModule mod_headers.c>
@@ -8,7 +17,7 @@ Header unset Set-Cookie
     Header set Expires 0
 </IfModule>
 
-<FilesMatch "\.(css|flv|gif|htm|html|ico|jpe|jpeg|jpg|js|mp3|mp4|png|pdf|swf|txt)$">
+<FilesMatch "\.(css|flv|gif|htm|html|ico|jpe|jpeg|jpg|js|mp3|mp4|png|pdf|swf|txt|webp)$">
     <IfModule mod_expires.c>
         ExpiresActive Off
     </IfModule>
