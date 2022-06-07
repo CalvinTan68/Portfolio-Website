@@ -1,3 +1,5 @@
+<img src="Library/portfolio.webp" alt="profile" style="height:300px; align=center">
+
 # Introduction
 
 Hi! This is my personal portfolio website that i created, and also my first project <br>
